@@ -29,12 +29,13 @@ window.addEventListener("load", function() {
             <li>Distance from Earth: ${json[index].distance}</li>
             <li>Number of Moons: ${json[index].moons}</li>
          </ol>
+          
          <img src="${json[index].image}">
          `;
       });
    });
    let form = document.querySelector("form");
-   form.addEventListener("submit", function(event) {
+   form.addEventListener("submit", function(event) { event.preventDefault();
       let pilotNameInput = document.querySelector("input[name=pilotName]");
       let coPilotNameInput = document.querySelector("input[name=copilotName]");
       let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
@@ -62,7 +63,7 @@ window.addEventListener("load", function() {
          fieldCheck = false;
          document.getElementById("faultyItems").style.visibility = "hidden";
       } else if (!isNaN(Number(pilotNameInput.value)) && pilotNameInput.value.trim().length > 0) {
-         alert("Invalid Input: No numbers can be used in pilot name field");
+         alert("Make sure to enter valid information to each field!");
          event.preventDefault();
          fieldCheck = false;
          document.getElementById("faultyItems").style.visibility = "hidden";
@@ -72,17 +73,17 @@ window.addEventListener("load", function() {
          fieldCheck = false;
          document.getElementById("faultyItems").style.visibility = "hidden";
       } else if (!isNaN(Number(coPilotNameInput.value)) && coPilotNameInput.value.trim().length > 0) {
-         alert("Invalid Input: No numbers can be used in copilot name field");
+         alert("Make sure to enter valid information to each field!");
          event.preventDefault();
          fieldCheck = false;
          document.getElementById("faultyItems").style.visibility = "hidden";
       } else if (typeof Number(fuelLevelInput.value) !== "number" || isNaN(Number(fuelLevelInput.value))) {
-         alert("Invalid Input: only numbers can be used in fuel level input");
+         alert("Make sure to enter valid information to each field!");
          event.preventDefault();
          fieldCheck = false;
          document.getElementById("faultyItems").style.visibility = "hidden";
       } else if (typeof Number(cargoMassInput.value) !== "number" || isNaN(Number(cargoMassInput.value))) {
-         alert("Invalid Input: Only numbers can be used for cargo mass");
+         alert("Make sure to enter valid information to each field!");
          event.preventDefault();
          fieldCheck = false;
          document.getElementById("faultyItems").style.visibility = "hidden";
